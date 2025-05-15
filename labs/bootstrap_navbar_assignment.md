@@ -38,6 +38,9 @@ Bootstrapを使って、自分のアプリ・ウェブサイトに合ったナ�
 
 ## ステップ 3：Bootstrapナビバーを追加
 
+**以下のコードを、`<body>` タグの中（開始タグ `<body>` と終了タグ `</body>` の間）に貼り付けてください。**
+
+
 ```html
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
@@ -69,6 +72,8 @@ Bootstrapを使って、自分のアプリ・ウェブサイトに合ったナ�
 ---
 
 ## ステップ 4：自分のアプリにあわせてカスタマイズ
+
+
 - `大学ポータル` → 自分のプロジェクト名やサービス名に変更  
 - リンク名を自由に変更（例：サークル、図書館、マイページ、設定 など）
 
@@ -110,16 +115,6 @@ Bootstrapでは、ナビバーの背景色（`bg-*`）と文字色（`navbar-*`�
 <a class="navbar-brand text-warning fw-bold" href="#">わたしのアプリ</a>
 ```
 
-### 検索ボックスを追加：
-
-```html
-<form class="d-flex" role="search">
-  <input class="form-control me-2" type="search" placeholder="検索" aria-label="検索">
-  <button class="btn btn-outline-success" type="submit">検索</button>
-</form>
-```
-
----
 
 ### ドロップダウンメニューを追加：
 
@@ -137,6 +132,18 @@ Bootstrapでは、ナビバーの背景色（`bg-*`）と文字色（`navbar-*`�
 </li>
 ```
 
+
+### 検索ボックスを追加（任意）：
+
+
+```html
+<form class="d-flex" role="search">
+  <input class="form-control me-2" type="search" placeholder="検索" aria-label="検索">
+  <button class="btn btn-outline-success" type="submit">検索</button>
+</form>
+```
+
+
 ---
 
 ## ステップ 6：動作確認
@@ -146,6 +153,7 @@ Bootstrapでは、ナビバーの背景色（`bg-*`）と文字色（`navbar-*`�
 ---
 
 ## 提出方法（Padlet）
+
 1. 完成した `index.html` をブラウザで開いて表示  
 2. スクリーンショットを撮る（Mac: Shift+Cmd+4 / Windows: Win+Shift+S）  
 3. Padletに投稿（以下の内容）：
