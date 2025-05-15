@@ -1,0 +1,180 @@
+ <!DOCTYPE html>
+ <html>
+<head>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuclear Reactor Control</title>
+    <style>
+     body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+     }
+     h1 {
+        color: #333;
+        margin-bottom: 20px;
+     }
+     #searchBox {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 300px;
+        font-size: 1em;
+     }
+     .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+     }
+     .button-group {
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+     }
+     .button-group h2 {
+        font-size: 1.2em;
+        margin-top: 0;
+        color: #555;
+        cursor: pointer;
+        padding: 10px 20px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #ddd;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative; /* Add this */
+        padding-right: 40px; /* Add this to make space for the arrow */
+     }
+     .button-group h2:hover {
+        background-color: #bbb;
+     }
+     .button-group h2:active {
+        background-color: #999;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        transform: translateY(1px);
+     }
+     .button-group .buttons {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+     }
+     .button-group.expanded .buttons {
+        display: flex;
+     }
+     button {
+        padding: 10px 20px;
+        margin: 5px;
+        border: none;
+        border-radius: 5px;
+        background-color: #ddd;
+        color: #333;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     }
+     button:hover {
+        background-color: #bbb;
+     }
+     button:active {
+        background-color: #999;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        transform: translateY(1px);
+     }
+     .critical {
+        background-color: red;
+        color: white;
+     }
+     /* Arrow Styles */
+     .arrow {
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        font-size: 1.2em;
+        color: #555;
+        transition: transform 0.3s ease;
+     }
+     .button-group.expanded .arrow {
+        transform: translateY(-50%) rotate(180deg); /* Rotates the arrow */
+     }
+     .hidden {
+        display: none !important;
+     }
+    </style>
+     </head>
+     <body>
+    <h1>Nuclear Reactor Control</h1>
+    <input type="text" id="searchBox" placeholder="Search Buttons...">
+    <div class="button-container">
+     <div class="button-group">
+        <h2 onclick="toggleGroup(this.parentNode)">
+         Reactor Control
+         <span class="arrow">▼</span>
+        </h2>
+        <div class="buttons">
+         <button>Start Reactor</button>
+         <button>Stop Reactor</button>
+         <button class="critical">Emergency Stop</button>
+        </div>
+     </div>
+     <div class="button-group">
+        <h2 onclick="toggleGroup(this.parentNode)">
+         Power Management
+         <span class="arrow">▼</span>
+        </h2>
+        <div class="buttons">
+         <button>Power Up</button>
+         <button>Power Down</button>
+         <button class="critical">Temperature High</button>
+         <button>Temperature Low</button>
+         <button>Pressure Level 1</button>
+         <button>Pressure Level 2</button>
+         <button>Pressure Level 3</button>
+        </div>
+     </div>
+     <div class="button-group">
+        <h2 onclick="toggleGroup(this.parentNode)">
+         System Operations
+         <span class="arrow">▼</span>
+        </h2>
+        <div class="buttons">
+         <button>Pump A</button>
+         <button>Pump B</button>
+         <button>Ventilation System 1</button>
+         <button>Ventilation System 2</button>
+         <button>Control Rod In</button>
+         <button>Control Rod Out</button>
+         <button>Alarm System 1</button>
+         <button>Alarm System 2</button>
+         <button>Cooling System On</button>
+         <button>Cooling System Off</button>
+        </div>
+     </div>
+    </div>
+    <script>
+     function toggleGroup(group) {
+        group.classList.toggle('expanded');
+     }
+     document.getElementById('searchBox').addEventListener('input', function(e) {
+        const searchText = e.target.value.toLowerCase();
+        const buttons = document.querySelectorAll('.button-container button');
+        buttons.forEach(button => {
+         if (button.textContent.toLowerCase().includes(searchText)) {
+          button.classList.remove('hidden');
+         } else {
+          button.classList.add('hidden');
+         }
+        });
+     });
+    </script>
+     </body>
+     </html>

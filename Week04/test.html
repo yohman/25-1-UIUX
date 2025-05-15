@@ -1,0 +1,305 @@
+ <!DOCTYPE html>
+ <html>
+<head>
+    <style>
+       body {
+          font-family: Arial, sans-serif;
+          background-color: #f0f0f0;
+          color: #333;
+          margin: 0;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+       }
+
+       h1 {
+          color: #555;
+          text-align: center;
+          margin-bottom: 20px;
+       }
+
+       .container {
+          display: flex;
+          flex-direction: column; /* Stack columns on smaller screens */
+          align-items: center;
+          width: 100%;
+          max-width: 900px;
+       }
+
+       .column {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 10px;
+          width: 100%; /* Make columns take full width on smaller screens */
+       }
+
+       .column h2 {
+          color: #777;
+          margin-bottom: 10px;
+       }
+
+       button {
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          background-color: #ddd;
+          color: #333;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          margin-bottom: 5px;
+          width: 100%; /* Use full width of the column */
+          max-width: 200px; /* Limit the maximum width */
+        text-align: center;
+            box-sizing: border-box; /* Include padding and border in the button's total width */
+                  position: relative; /* Required for tooltip positioning */
+                  vertical-align: top; /* Align buttons to the top */
+                   }
+
+                   button:hover {
+                  background-color: #bbb;
+                   }
+
+                   button:active {
+                  background-color: #999;
+                   }
+
+                   .emergency {
+                  background-color: red;
+                  color: white;
+                   }
+
+                   .on {
+                  background-color: green;
+                  color: white;
+                   }
+
+                   .column-header {
+                  padding: 10px 20px;
+                  border: none;
+                  border-radius: 5px;
+                  background-color: #555;
+                  color: white;
+                  cursor: pointer;
+                  transition: background-color 0.3s ease;
+                  margin-bottom: 5px;
+                  width: 100%;
+                  text-align: center;
+                  font-size: 1.2em;
+                  margin-top: 10px;
+                  box-sizing: border-box; /* Include padding and border in the button's total width */
+                   }
+
+                   .column-header:hover {
+                  background-color: #777;
+                   }
+
+                   .hidden {
+                  display: none;
+                   }
+
+                   .arrow {
+                  float: right;
+                  transition: transform 0.3s ease;
+                   }
+
+                   .arrow.up {
+                  transform: rotate(180deg);
+                   }
+
+                   .expand-collapse {
+                  text-align: center;
+                  margin-bottom: 10px;
+                   }
+
+                   .expand-collapse a {
+                  margin: 0 10px;
+                  cursor: pointer;
+                  color: #555;
+                  text-decoration: none;
+                   }
+
+                   .expand-collapse a:hover {
+                  text-decoration: underline;
+                   }
+
+                   /* Media query for larger screens */
+                   @media (min-width: 768px) {
+                  .container {
+                     flex-direction: row; /* Display columns in a row on larger screens */
+                     justify-content: space-around;
+                  }
+
+                  .column {
+                     width: 30%; /* Adjust as needed for three columns */
+                  }
+                   }
+
+                   /* Tooltip styles */
+                   .tooltip {
+                  visibility: hidden;
+                  background-color: #333;
+                  color: #fff;
+                  text-align: center;
+                  border-radius: 6px;
+                  padding: 5px;
+                  position: absolute;
+                  z-index: 1;
+                  bottom: 125%;
+                  left: 50%;
+                  transform: translateX(-50%);
+                  opacity: 0;
+                  transition: opacity 0.3s;
+                  white-space: nowrap;
+                   }
+
+                   .tooltip::after {
+                  content: "";
+                  position: absolute;
+                  top: 100%;
+                  left: 50%;
+                  margin-left: -5px;
+                  border-width: 5px;
+                  border-style: solid;
+                  border-color: #333 transparent transparent transparent;
+                   }
+
+                   button:hover .tooltip {
+                  visibility: visible;
+                  opacity: 1;
+                   }
+
+                   #searchBox {
+                  padding: 12px 20px;
+                  margin: 10px 0;
+                  width: 400px;
+                  font-size: 18px;
+                  border: 2px solid #ddd;
+                  border-radius: 8px;
+                  box-sizing: border-box;
+                  background-color: #f8f8f8;
+                   }
+                </style>
+                   <h1>Nuclear Reactor Control</h1>
+
+                   <input type="text" id="searchBox" placeholder="Search for a button...">
+
+                   <div class="expand-collapse">
+                  <a onclick="expandAll()">Expand All</a> | <a onclick="collapseAll()">Collapse All</a>
+                   </div>
+
+                   <div class="container">
+                   <div class="column">
+                  <button class="column-header" onclick="toggleColumn(this)">Reactor Operations <span class="arrow">&#9660;</span></button>
+                  <div class="button-container hidden">
+                  <button onclick="toggleState(this)">Start Reactor<span class="tooltip">Initiates the nuclear reaction.</span></button>
+                  <button onclick="toggleState(this)">Stop Reactor<span class="tooltip">Ceases the nuclear reaction.</span></button>
+                  <button class="emergency" onclick="toggleState(this)">Rapid Shutdown<span class="tooltip">Immediately halts the reactor in case of emergency.</span></button>
+                  <button class="emergency" onclick="toggleState(this)">Eject Control Rods<span class="tooltip">Physically removes control rods to stop the reaction.</span></button>
+                  </div>
+                   </div>
+
+                   <div class="column">
+                  <button class="column-header" onclick="toggleColumn(this)">Temperature & Pressure <span class="arrow">&#9660;</span></button>
+                  <div class="button-container hidden">
+                  <button onclick="toggleState(this)">Increase Temperature<span class="tooltip">Raises the reactor's core temperature.</span></button>
+                  <button onclick="toggleState(this)">Decrease Temperature<span class="tooltip">Lowers the reactor's core temperature.</span></button>
+                  <button onclick="toggleState(this)">Increase Pressure<span class="tooltip">Raises the reactor's internal pressure.</span></button>
+                  <button onclick="toggleState(this)">Decrease Pressure<span class="tooltip">Lowers the reactor's internal pressure.</span></button>
+                  </div>
+                   </div>
+
+                   <div class="column">
+                  <button class="column-header" onclick="toggleColumn(this)">Emergency Systems <span class="arrow">&#9660;</span></button>
+                  <div class="button-container hidden">
+                  <button class="emergency" onclick="toggleState(this)">Initiate Fire Water Inflow<span class="tooltip">Floods the reactor with water to prevent meltdown.</span></button>
+                  <button class="emergency" onclick="toggleState(this)">Engage Containment Dump<span class="tooltip">Releases pressure from the containment structure.</span></button>
+                  <button class="emergency" onclick="toggleState(this)">Activate Emergency Mode<span class="tooltip">Switches all systems to emergency protocols.</span></button>
+                  <button onclick="toggleState(this)">Activate Backup Power<span class="tooltip">Switches to secondary power source.</span></button>
+                  </div>
+                   </div>
+
+                   <div class="column">
+                  <button class="column-header" onclick="toggleColumn(this)">Power & Venting <span class="arrow">&#9660;</span></button>
+                  <div class="button-container hidden">
+                  <button onclick="toggleState(this)">Increase Power Output<span class="tooltip">Increases the amount of power generated.</span></button>
+                  <button onclick="toggleState(this)">Decrease Power Output<span class="tooltip">Decreases the amount of power generated.</span></button>
+                  <button onclick="toggleState(this)">Open Vent<span class="tooltip">Releases excess steam from the reactor.</span></button>
+                  <button onclick="toggleState(this)">Start Injection System<span class="tooltip">Initiates the coolant injection system.</span></button>
+                  </div>
+                   </div>
+
+                   <div class="column">
+                  <button class="column-header" onclick="toggleColumn(this)">Diagnostics <span class="arrow">&#9660;</span></button>
+                  <div class="button-container hidden">
+                  <button onclick="toggleState(this)">Calibrate Sensors<span class="tooltip">Resets and calibrates all sensor readings.</span></button>
+                  <button onclick="toggleState(this)">Run Diagnostics<span class="tooltip">Performs a system-wide diagnostic check.</span></button>
+                  <button onclick="toggleState(this)">View Error Logs<span class="tooltip">Displays a log of all system errors.</span></button>
+                  <button onclick="toggleState(this)">Override Systems<span class="tooltip">Allows manual override of automated systems.</span></button>
+                  </div>
+                   </div>
+                   </div>
+
+                   <script>
+                   function toggleState(button) {
+                  button.classList.toggle('on');
+                   }
+
+                   function toggleColumn(header) {
+                  const column = header.parentNode;
+                  const buttonContainer = column.querySelector('.button-container');
+                  const arrow = header.querySelector('.arrow');
+
+                  buttonContainer.classList.toggle('hidden');
+                  arrow.classList.toggle('up');
+                   }
+
+                   function expandAll() {
+                  const headers = document.querySelectorAll('.column-header');
+                  headers.forEach(header => {
+                  const column = header.parentNode;
+                  const buttonContainer = column.querySelector('.button-container');
+                  const arrow = header.querySelector('.arrow');
+
+                  buttonContainer.classList.remove('hidden');
+                  arrow.classList.add('up');
+                  });
+                   }
+
+                   function collapseAll() {
+                  const headers = document.querySelectorAll('.column-header');
+                  headers.forEach(header => {
+                  const column = header.parentNode;
+                  const buttonContainer = column.querySelector('.button-container');
+                  const arrow = header.querySelector('.arrow');
+
+                  buttonContainer.classList.add('hidden');
+                  arrow.classList.remove('up');
+                  });
+                   }
+
+                   document.getElementById('searchBox').addEventListener('input', function() {
+                  const searchText = this.value.toLowerCase();
+                  const buttons = document.querySelectorAll('.button-container button');
+
+                  buttons.forEach(button => {
+                     const buttonText = button.textContent.toLowerCase();
+                     if (buttonText.includes(searchText)) {
+                    button.style.display = ""; // Show the button
+                    const column = button.closest('.column');
+                    const header = column.querySelector('.column-header');
+                    const buttonContainer = column.querySelector('.button-container');
+                    const arrow = header.querySelector('.arrow');
+
+                    buttonContainer.classList.remove('hidden');
+                    arrow.classList.add('up');
+                     } else {
+                    button.style.display = "none"; // Hide the button
+                     }
+                  });
+                   });
+                   </script>
+                   </head>
+             </body>
+             </html>

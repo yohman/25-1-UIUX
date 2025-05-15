@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuclear Reactor Control Center</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .category {
+            margin-bottom: 20px;
+        }
+        .category h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: white;
+            background-color: #343a40;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            position: relative;
+        }
+        .category h2:hover {
+            background-color: #495057;
+        }
+        .category h2::after {
+            content: '▼';
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .category h2.open::after {
+            content: '▲';
+        }
+        .button-container {
+            display: none;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #f9f9f9;
+            color: #333;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+        }
+        button:active {
+            background-color: #d0d0d0;
+            transform: translateY(0);
+        }
+        .critical {
+            background-color: red;
+            color: white;
+        }
+        .critical:hover {
+            background-color: darkred;
+        }
+        .on {
+            background-color: #28a745 !important; /* Green for "on" state */
+            color: white;
+        }
+        .legend {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .legend span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0 5px;
+        }
+        .legend .normal {
+            background-color: #f9f9f9;
+        }
+        .legend .emergency {
+            background-color: red;
+        }
+        .legend .active {
+            background-color: #28a745;
+        }
+        #searchBox {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #languageButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #languageButton.active {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        const translations = {
+            "Nuclear Reactor Control Center": {
+                "en": "Nuclear Reactor Control Center",
+                "jp": "原子炉制御センター"
+            },
+            "Normal": {
+                "en": "Normal",
+                "jp": "ノーマル"
+            },
+            "Emergency": {
+                "en": "Emergency",
+                "jp": "緊急"
+            },
+            "Active": {
+                "en": "Active",
+                "jp": "アクティブ"
+            },
+            "Search buttons...": {
+                "en": "Search buttons...",
+                "jp": "ボタンを検索..."
+            },
+            "Reactor Operations": {
+                "en": "Reactor Operations",
+                "jp": "原子炉運転"
+            },
+            "Start Reactor": {
+                "en": "Start Reactor",
+                "jp": "原子炉起動"
+            },
+            "Stop Reactor": {
+                "en": "Stop Reactor",
+                "jp": "原子炉停止"
+            },
+            "Increase Power Output": {
+                "en": "Increase Power Output",
+                "jp": "出力増加"
+            },
+            "Decrease Power Output": {
+                "en": "Decrease Power Output",
+                "jp": "出力減少"
+            },
+            "Open Reactor Core": {
+                "en": "Open Reactor Core",
+                "jp": "炉心開放"
+            },
+            "Close Reactor Core": {
+                "en": "Close Reactor Core",
+                "jp": "炉心閉鎖"
+            },
+            "Safety Systems": {
+                "en": "Safety Systems",
+                "jp": "安全システム"
+            },
+            "Activate Cooling System": {
+                "en": "Activate Cooling System",
+                "jp": "冷却システム起動"
+            },
+            "Deactivate Cooling System": {
+                "en": "Deactivate Cooling System",
+                "jp": "冷却システム停止"
+            },
+            "Emergency Shutdown": {
+                "en": "Emergency Shutdown",
+                "jp": "緊急停止"
+            },
+            "Enable Safety Protocols": {
+                "en": "Enable Safety Protocols",
+                "jp": "安全プロトコル有効化"
+            },
+            "Disable Safety Protocols": {
+                "en": "Disable Safety Protocols",
+                "jp": "安全プロトコル無効化"
+            },
+            "Activate Backup Power": {
+                "en": "Activate Backup Power",
+                "jp": "バックアップ電源起動"
+            },
+            "Deactivate Backup Power": {
+                "en": "Deactivate Backup Power",
+                "jp": "バックアップ電源停止"
+            },
+            "Test Alarm System": {
+                "en": "Test Alarm System",
+                "jp": "警報システムテスト"
+            },
+            "Activate Fire Suppression System": {
+                "en": "Activate Fire Suppression System",
+                "jp": "消火システム起動"
+            },
+            "Deactivate Fire Suppression System": {
+                "en": "Deactivate Fire Suppression System",
+                "jp": "消火システム停止"
+            },
+            "Diagnostics & Controls": {
+                "en": "Diagnostics & Controls",
+                "jp": "診断と制御"
+            },
+            "Run Diagnostics": {
+                "en": "Run Diagnostics",
+                "jp": "診断実行"
+            },
+            "View Reactor Status": {
+                "en": "View Reactor Status",
+                "jp": "原子炉状態表示"
+            },
+            "Override Controls": {
+                "en": "Override Controls",
+                "jp": "制御上書き"
+            },
+            "Lock Controls": {
+                "en": "Lock Controls",
+                "jp": "制御ロック"
+            },
+            "Unlock Controls": {
+                "en": "Unlock Controls",
+                "jp": "制御ロック解除"
+            },
+            "Monitor Radiation Levels": {
+                "en": "Monitor Radiation Levels",
+                "jp": "放射線レベル監視"
+            },
+            "Calibrate Sensors": {
+                "en": "Calibrate Sensors",
+                "jp": "センサー校正"
+            },
+            "Test Emergency Lights": {
+                "en": "Test Emergency Lights",
+                "jp": "非常灯テスト"
+            },
+            "Reset System": {
+                "en": "Reset System",
+                "jp": "システムリセット"
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'jp' : 'en';
+            updateText();
+            const languageButton = document.getElementById('languageButton');
+            languageButton.textContent = currentLanguage === 'en' ? 'JP' : 'EN';
+            languageButton.classList.toggle('active', currentLanguage === 'en');
+        }
+
+        function updateText() {
+            Object.keys(translations).forEach(key => {
+                const elements = document.querySelectorAll(`[data-translate-key="${key}"]`);
+                elements.forEach(element => {
+                    element.textContent = translations[key][currentLanguage];
+                });
+            });
+        }
+
+        function toggleCategory(categoryId) {
+            const container = document.getElementById(categoryId);
+            const header = document.querySelector(`[onclick="toggleCategory('${categoryId}')"]`);
+            container.style.display = container.style.display === 'flex' ? 'none' : 'flex';
+            header.classList.toggle('open');
+        }
+
+        function toggleButtonState(button) {
+            button.classList.toggle('on');
+        }
+
+        function searchButtons() {
+            const searchText = document.getElementById('searchBox').value.toLowerCase();
+            const categories = document.querySelectorAll('.category');
+
+            categories.forEach(category => {
+                const categoryId = category.querySelector('.button-container').id;
+                const buttons = category.querySelectorAll('button');
+                let matchFound = false;
+
+                buttons.forEach(button => {
+                    const buttonText = button.textContent.toLowerCase();
+                    if (buttonText.includes(searchText)) {
+                        button.style.display = ''; // Show the button
+                        matchFound = true;
+                    } else {
+                        button.style.display = 'none'; // Hide the button
+                    }
+                });
+
+                const header = category.querySelector('h2');
+                const container = document.getElementById(categoryId);
+
+                if (matchFound && !header.classList.contains('open')) {
+                    toggleCategory(categoryId);
+                } else if (!matchFound && header.classList.contains('open') && searchText === '') {
+                    toggleCategory(categoryId);
+                    buttons.forEach(button => {
+                        button.style.display = ''; // Show all buttons when search is cleared
+                    });
+                }
+            });
+        }
+
+        window.onload = () => {
+            const languageButton = document.getElementById('languageButton');
+            languageButton.classList.add('active');
+            updateText();
+        };
+    </script>
+</head>
+<body>
+    <button id="languageButton" onclick="toggleLanguage()">JP</button>
+    <h1 data-translate-key="Nuclear Reactor Control Center">Nuclear Reactor Control Center</h1>
+
+    <div class="legend">
+        <span data-translate-key="Normal">Normal</span>
+        <span class="emergency"></span> <span data-translate-key="Emergency">Emergency</span>
+        <span class="active"></span> <span data-translate-key="Active">Active</span>
+    </div>
+
+    <input type="text" id="searchBox" onkeyup="searchButtons()" placeholder="Search buttons..." data-translate-key="Search buttons...">
+
+    <div class="category">
+        <h2 onclick="toggleCategory('reactor-operations')" data-translate-key="Reactor Operations">Reactor Operations</h2>
+        <div id="reactor-operations" class="button-container">
+            <button onclick="toggleButtonState(this)" data-translate-key="Start Reactor">Start Reactor</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Stop Reactor">Stop Reactor</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Increase Power Output">Increase Power Output</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Decrease Power Output">Decrease Power Output</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Open Reactor Core">Open Reactor Core</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Close Reactor Core">Close Reactor Core</button>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2 onclick="toggleCategory('safety-systems')" data-translate-key="Safety Systems">Safety Systems</h2>
+        <div id="safety-systems" class="button-container">
+            <button onclick="toggleButtonState(this)" data-translate-key="Activate Cooling System">Activate Cooling System</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Deactivate Cooling System">Deactivate Cooling System</button>
+            <button class="critical" onclick="toggleButtonState(this)" data-translate-key="Emergency Shutdown">Emergency Shutdown</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Enable Safety Protocols">Enable Safety Protocols</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Disable Safety Protocols">Disable Safety Protocols</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Activate Backup Power">Activate Backup Power</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Deactivate Backup Power">Deactivate Backup Power</button>
+            <button class="critical" onclick="toggleButtonState(this)" data-translate-key="Test Alarm System">Test Alarm System</button>
+            <button class="critical" onclick="toggleButtonState(this)" data-translate-key="Activate Fire Suppression System">Activate Fire Suppression System</button>
+            <button class="critical" onclick="toggleButtonState(this)" data-translate-key="Deactivate Fire Suppression System">Deactivate Fire Suppression System</button>
+        </div>
+    </div>
+
+    <div class="category">
+        <h2 onclick="toggleCategory('diagnostics-controls')" data-translate-key="Diagnostics & Controls">Diagnostics & Controls</h2>
+        <div id="diagnostics-controls" class="button-container">
+            <button onclick="toggleButtonState(this)" data-translate-key="Run Diagnostics">Run Diagnostics</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="View Reactor Status">View Reactor Status</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Override Controls">Override Controls</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Lock Controls">Lock Controls</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Unlock Controls">Unlock Controls</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Monitor Radiation Levels">Monitor Radiation Levels</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Calibrate Sensors">Calibrate Sensors</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Test Emergency Lights">Test Emergency Lights</button>
+            <button onclick="toggleButtonState(this)" data-translate-key="Reset System">Reset System</button>
+        </div>
+    </div>
+</body>
+</html>

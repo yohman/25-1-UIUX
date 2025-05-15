@@ -1,6 +1,7 @@
 # UI/UX Design Course Overview (14 Weeks)
 
-Below is a **14-week syllabus** designed to help students develop a website or application (e.g., an interactive map) and deliver a final product that implements good UI/UX design principles. The course integrates **group or individual projects**, **UI/UX tools (such as Figma)**, and iterative design processes.
+**Course Purpose:**  
+This course is structured to guide you through **core UI/UX theories and practices** while simultaneously **building a functional deliverable**—an application, website, or interactive product. By the end of this program, you will **demonstrate** your final project in front of peers, highlighting the design process, key UI/UX considerations, and lessons learned. Throughout the 14 weeks, we’ll use **iterative design**, **prototyping tools** (such as Figma), and **user testing** to ensure your product meets real user needs and exemplifies strong design principles.
 
 ---
 
@@ -8,18 +9,17 @@ Below is a **14-week syllabus** designed to help students develop a website or a
 **Objective:** Understand the purpose of design and distinguish between UI and UX. Begin exploring final project ideas (website/app).
 
 ### Pre-Class
-- **Read**: Basic UI/UX articles or textbook chapters.
+- **Read**: Basic UI/UX articles or textbook chapters.  
 - **Reflect**: Note personal experiences with good and poor design.
 
 ### In-Class
 1. **Icebreaker**: Redesign a common object—in this case, a **computer mouse**.
    - In small groups, discuss how you can improve a standard mouse design from both a usability and aesthetic standpoint.
    - Consider elements such as:
-     - Button placement
-     - Ergonomics
-     - Visual design cues
-     - Additional features or gestures
-
+     - Button placement  
+     - Ergonomics  
+     - Visual design cues  
+     - Additional features or gesture
 2. **Lecture**: Definitions and differences between UI and UX, overview of course project expectations.
    - **UI (User Interface)**: The visual layout, buttons, and interactive elements.
    - **UX (User Experience)**: The overall feeling and journey a user has while interacting with a product, including ease of use, satisfaction, and workflow.
@@ -27,7 +27,7 @@ Below is a **14-week syllabus** designed to help students develop a website or a
 3. **Project Introduction**:
    - Present possible project themes (e.g., interactive map, e-commerce site, learning platform).
    - Students form teams or choose individual projects.
-   - Brainstorm initial ideas on the problem space or features they plan to address.
+   - Brainstorm initial ideas on the problem space or features they plan to address for their **final deliverable**.
 
 ### Post-Class
 - **Assignment**:
@@ -37,15 +37,12 @@ Below is a **14-week syllabus** designed to help students develop a website or a
      - Potential features or unique value propositions
 
 ---
-# Week 2: Understanding Human Cognitive Characteristics
 
+## Week 2: Understanding Human Cognitive Characteristics
 **Objective:** Delve into how human cognition affects design choices. By understanding the limits of memory, attention, and cognitive load, students will learn to create more intuitive and user-friendly interfaces. Begin persona creation to ground your design decisions in real (or hypothetical) user behaviors and needs.
 
----
-
-## What Are Human Cognitive Characteristics?
-
-In UI/UX design, **human cognitive characteristics** refer to the ways in which people perceive, process, and retain information. Designers who understand these characteristics can create products that align with how the human mind naturally works. Key principles include:
+### What Are Human Cognitive Characteristics?
+In UI/UX design, **human cognitive characteristics** refer to how people perceive, process, and retain information. Designers who understand these can create products that align with how the mind naturally works. Key principles include:
 
 1. **Limited Working Memory**  
    - **Example**: People can typically hold about 4–7 items in their short-term memory at once. If an app screen has too many action items or requires complex recall (e.g., multiple steps or codes), it overwhelms the user.  
@@ -67,20 +64,13 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
    - **Example**: Many users have a “mental model” that a shopping cart icon in the top right corner will let them view or edit their purchases. Breaking these conventions can create confusion.  
    - **Design Tip**: Match your design with common mental models and established patterns to reduce the learning curve.
 
----
-
-## Pre-Class
-
+### Pre-Class
 - **Research**:  
-  Read about **human cognitive principles**—such as cognitive load, memory limits, chunking, and attention—and note how they manifest in everyday applications or websites.
-
+  Read about **human cognitive principles**—cognitive load, memory limits, chunking, and attention—and note how they manifest in everyday applications or websites.
 - **Reflect**:  
   Jot down a few cognitive challenges (e.g., too many steps, hidden features, complex forms) you’ve encountered in apps or sites you frequently use.
 
----
-
-## In-Class
-
+### In-Class
 1. **Lecture**  
    - **Human Cognitive Limits**  
      - Delve deeper into short-term memory capacity and the implications of **“7 ± 2”** (or more recent research suggesting **“4 ± 1”** items).  
@@ -99,12 +89,8 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
    - **Introduction to Personas**:  
      - Discuss how understanding user goals, behaviors, and cognitive constraints helps tailor the design.
 
----
-
-## Post-Class
-
-### Assignment
-
+### Post-Class
+#### Assignment
 1. **Create a Persona**  
    - Develop a user persona for your project that includes demographic details, goals, frustrations, and motivations.  
    - Incorporate potential cognitive challenges this persona might face (e.g., short attention span, limited technology experience, easily overwhelmed by too many choices).
@@ -114,23 +100,8 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
 
 ---
 
-## Why This Matters
-
-- **Better User Experience**: By recognizing that users have cognitive limits, designers can build interfaces that feel intuitive and non-overwhelming.
-- **Higher Engagement**: When tasks align with users’ mental models and cognitive abilities, they’re more likely to remain engaged and complete their goals.
-- **Efficient Problem-Solving**: Understanding core cognitive characteristics prevents you from designing features that are too complex or mentally taxing.
-
----
-
-### Additional Resources
-
-- **Don Norman’s “The Design of Everyday Things”** – Chapters on affordances and mental models.  
-- **Jakob Nielsen’s Usability Heuristics** – Points on recognition over recall and minimalist design.  
-- **Nielsen Norman Group Articles** on cognitive load and memory in UX.
----
-
 ## Week 3: UI/UX Design Processes
-**Objective:** Understand design thinking and workflows. Apply them to the project.
+**Objective:** Understand design thinking and workflows. Apply them to the project deliverable.
 
 ### Pre-Class
 - **Study**: Design thinking stages (empathize, define, ideate, prototype, test).
@@ -151,7 +122,7 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
 ---
 
 ## Week 4: The Psychology of UI/UX Design
-**Objective:** Explore Hick's Law, Gestalt principles, and other psychological considerations.
+**Objective:** Explore Hick's Law, Gestalt principles, and other psychological considerations to enhance your project.
 
 ### Pre-Class
 - **Read**: Articles on Gestalt principles, Hick’s Law, and their impact on interface design.
@@ -170,7 +141,7 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
 ---
 
 ## Week 5: Navigation and Interaction Design
-**Objective:** Design effective navigation and intuitive interaction patterns.
+**Objective:** Design effective navigation and intuitive interaction patterns that enhance your deliverable.
 
 ### Pre-Class
 - **Research**: Best practices in navigation (e.g., global vs. local) and interaction patterns (buttons, gestures, hover states).
@@ -206,7 +177,7 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
 ---
 
 ## Week 7: Prototyping UI Design
-**Objective:** Learn and apply prototyping techniques (e.g., Figma).
+**Objective:** Learn and apply prototyping techniques (e.g., Figma) to build out your project.
 
 ### Pre-Class
 - **Study**: Tutorials on Figma (or similar UI design tool), focusing on creating interactive elements.
@@ -223,7 +194,7 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
 ---
 
 ## Week 8: Evaluating UI Design
-**Objective:** Test and evaluate UI designs for usability.
+**Objective:** Test and evaluate UI designs for usability, applying insights to strengthen your final deliverable.
 
 ### Pre-Class
 - **Read**: Articles on usability testing methods (heuristic evaluations, A/B testing, user interviews).
@@ -240,7 +211,7 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
 ---
 
 ## Week 9: UX Research – User Insights
-**Objective:** Deepen understanding of user needs through targeted research.
+**Objective:** Deepen understanding of user needs through targeted research to refine your project.
 
 ### Pre-Class
 - **Explore**: Methods for gathering qualitative data (interviews, surveys) and quantitative data (analytics).
@@ -257,7 +228,7 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
 ---
 
 ## Week 10: UX Concept Design
-**Objective:** Develop conceptual designs informed by user research.
+**Objective:** Develop conceptual designs informed by user research that will shape your final deliverable.
 
 ### Pre-Class
 - **Study**: Techniques for concept development (storyboarding, mood boards, design workshops).
@@ -274,7 +245,7 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
 ---
 
 ## Week 11: Prototyping UX Design
-**Objective:** Build a higher-fidelity UX prototype incorporating user feedback.
+**Objective:** Build a higher-fidelity UX prototype incorporating user feedback for your project deliverable.
 
 ### Pre-Class
 - **Study**: Advanced prototyping features in Figma (animation, transitions, clickable hotspots).
@@ -291,7 +262,7 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
 ---
 
 ## Week 12: Evaluating UX Design
-**Objective:** Test and refine the overall UX of your project.
+**Objective:** Test and refine the overall UX of your project, preparing for final demonstrations.
 
 ### Pre-Class
 - **Research**: Common UX evaluation frameworks (Nielsen’s heuristics, cognitive walkthroughs).
@@ -326,36 +297,36 @@ In UI/UX design, **human cognitive characteristics** refer to the ways in which 
 ---
 
 ## Week 14: The UI/UX Industry – Guest Lecture (UX Professional) & Final Presentations
-**Objective:** Conclude with a UX-focused guest lecture and showcase final projects.
+**Objective:** Conclude with a UX-focused guest lecture and **showcase final projects** in class demonstrations.
 
 ### Pre-Class
 - **Research**: The second guest speaker’s portfolio or articles.
-- **Finalize**: Prepare your final prototype and presentation.
+- **Finalize**: Prepare your final prototype and presentation for demonstration.
 
 ### In-Class
 - **Guest Lecture**: Expert insights on UX design trends and best practices.
 - **Final Project Presentations**:
-  - Each individual/group presents their **website/app prototype** (e.g., an interactive map).
-  - Demonstrate design rationale, highlight key UI/UX elements, and discuss future improvements.
+  - Each individual/group **demonstrates** their **website/app prototype** or product.  
+  - Discuss design rationale, highlight key UI/UX elements, and outline future improvements.
 
 ### Post-Class
 - **Submit Final Report**:
-  1. **Document the entire design process** (personas, wireframes, prototypes, user testing, iterations).
+  1. **Document the entire design process** (personas, wireframes, prototypes, user testing, iterations).  
   2. **Reflect** on personal/team growth and what was learned about effective UI/UX.
 
 ---
 
 ## Key Deliverables Throughout the Course
-1. **Project Proposal** (Week 1)
-2. **User Persona & Cognitive Analysis** (Week 2)
-3. **User Journeys & Wireframes** (Weeks 3–4)
-4. **Navigation Diagram & Constraints Plan** (Weeks 5–6)
-5. **Mid-Fidelity Figma Prototype & Usability Testing** (Weeks 7–8)
-6. **User Research & Concept Refinements** (Weeks 9–10)
-7. **High-Fidelity Figma Prototype & UX Evaluation** (Weeks 11–12)
-8. **Final Project Presentation & Report** (Week 14)
+1. **Project Proposal** (Week 1)  
+2. **User Persona & Cognitive Analysis** (Week 2)  
+3. **User Journeys & Wireframes** (Weeks 3–4)  
+4. **Navigation Diagram & Constraints Plan** (Weeks 5–6)  
+5. **Mid-Fidelity Figma Prototype & Usability Testing** (Weeks 7–8)  
+6. **User Research & Concept Refinements** (Weeks 9–10)  
+7. **High-Fidelity Figma Prototype & UX Evaluation** (Weeks 11–12)  
+8. **Final Project Demonstration & Report** (Week 14)
 
 ---
 
 ### Summary
-This course syllabus guides students from foundational **UI/UX theory** to **hands-on project work**, ensuring that each week builds toward a final **website or application** prototype demonstrating strong design principles. Through iterative design, prototyping in **Figma**, and user research/testing, participants will complete the course with a portfolio-worthy project and a solid grasp of effective UI/UX methodologies.
+Over 14 weeks, you will **learn and apply** fundamental UI/UX principles, progressing from initial concept sketches to a **functional prototype** that incorporates **user research, iterative design, and usability testing**. The course is **deliverable-focused**, ensuring that by the end, you will **present a cohesive, well-researched product** (website/app) demonstrating thoughtful user interface and user experience design.

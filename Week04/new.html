@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuclear Reactor Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .group {
+            margin-bottom: 30px;
+        }
+        .toggle-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .toggle-button:hover {
+            background-color: #555;
+        }
+        .toggle-button .arrow {
+            margin-left: 10px;
+            font-size: 14px;
+        }
+        .button-container {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #e0e0e0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+            flex: 1 1 calc(33.33% - 20px);
+            box-sizing: border-box;
+        }
+        button:hover {
+            background-color: #d0d0d0;
+        }
+        .critical {
+            background-color: #ff4d4d;
+            color: white;
+            border: 1px solid #cc0000;
+        }
+        .critical:hover {
+            background-color: #e60000;
+        }
+        .on {
+            background-color: #4caf50;
+            color: white;
+            border: 1px solid #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nuclear Reactor Control Panel</h1>
+
+    <div class="group">
+        <button class="toggle-button">
+            Reactor Operations <span class="arrow">▼</span>
+        </button>
+        <div class="button-container">
+            <button class="critical">Start Reactor</button>
+            <button class="critical">Stop Reactor</button>
+            <button>Open Reactor Core</button>
+            <button>Close Reactor Core</button>
+        </div>
+    </div>
+
+    <div class="group">
+        <button class="toggle-button">
+            Power Management <span class="arrow">▼</span>
+        </button>
+        <div class="button-container">
+            <button>Increase Power</button>
+            <button>Decrease Power</button>
+            <button>Activate Cooling System</button>
+            <button>Deactivate Cooling System</button>
+        </div>
+    </div>
+
+    <div class="group">
+        <button class="toggle-button">
+            Safety and Emergency <span class="arrow">▼</span>
+        </button>
+        <div class="button-container">
+            <button class="critical">Emergency Shutdown</button>
+            <button>Enable Safety Protocols</button>
+            <button>Disable Safety Protocols</button>
+            <button>Activate Containment System</button>
+            <button>Deactivate Containment System</button>
+        </div>
+    </div>
+
+    <div class="group">
+        <button class="toggle-button">
+            Diagnostics and Monitoring <span class="arrow">▼</span>
+        </button>
+        <div class="button-container">
+            <button>Run Diagnostics</button>
+            <button>Check Radiation Levels</button>
+            <button>Monitor Fuel Levels</button>
+            <button>Reset Alarms</button>
+            <button>Test Backup Generators</button>
+        </div>
+    </div>
+
+    <script>
+        // Add event listeners to toggle buttons
+        document.querySelectorAll('.toggle-button').forEach(toggleButton => {
+            toggleButton.addEventListener('click', () => {
+                const buttonContainer = toggleButton.nextElementSibling;
+                const arrow = toggleButton.querySelector('.arrow');
+                if (buttonContainer.style.display === 'none' || buttonContainer.style.display === '') {
+                    buttonContainer.style.display = 'flex';
+                    arrow.textContent = '▲';
+                } else {
+                    buttonContainer.style.display = 'none';
+                    arrow.textContent = '▼';
+                }
+            });
+        });
+
+        // Initially hide all button containers
+        document.querySelectorAll('.button-container').forEach(container => {
+            container.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

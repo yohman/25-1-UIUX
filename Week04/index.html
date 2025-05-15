@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuclear Reactor Control System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .menu {
+            margin-bottom: 20px;
+        }
+        .menu h2 {
+            margin-bottom: 10px;
+            cursor: pointer;
+            color: white;
+            text-align: center;
+            position: relative;
+            padding: 15px;
+            background-color: #343a40;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .menu h2:hover {
+            background-color: #495057;
+            transform: translateY(-2px);
+        }
+        .menu h2:active {
+            transform: translateY(0);
+        }
+        .menu h2::after {
+            content: '▼';
+            position: absolute;
+            right: 15px;
+            font-size: 16px;
+            color: white;
+        }
+        .button-container {
+            display: none;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+            background-color: #d6d6d6;
+            color: #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background-color: #bfbfbf;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .critical {
+            background-color: red;
+            color: white;
+        }
+        .critical:hover {
+            background-color: darkred;
+        }
+        .pressed {
+            background-color: #28a745 !important; /* Green for "ON" state */
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .critical.pressed {
+            background-color: #28a745 !important;
+        }
+    </style>
+    <script>
+        function toggleMenu(menuId) {
+            const menu = document.getElementById(menuId);
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function toggleButtonState(button) {
+            button.classList.toggle('pressed');
+        }
+    </script>
+</head>
+<body>
+    <h1>Nuclear Reactor Control System</h1>
+
+    <div class="legend">
+        <h2>Legend</h2>
+        <ul>
+            <li><span style="display: inline-block; width: 20px; height: 20px; background-color: #d6d6d6; border-radius: 3px; margin-right: 5px;"></span> Default State</li>
+            <li><span style="display: inline-block; width: 20px; height: 20px; background-color: #28a745; border-radius: 3px; margin-right: 5px;"></span> ON State</li>
+            <li><span style="display: inline-block; width: 20px; height: 20px; background-color: red; border-radius: 3px; margin-right: 5px;"></span> Emergency Button</li>
+        </ul>
+    </div>
+
+    <div class="menu">
+        <h2 onclick="toggleMenu('reactor-operations')">Reactor Operations</h2>
+        <div id="reactor-operations" class="button-container">
+            <button onclick="toggleButtonState(this)">Start Reactor</button>
+            <button onclick="toggleButtonState(this)">Stop Reactor</button>
+            <button onclick="toggleButtonState(this)">Increase Power Output</button>
+            <button onclick="toggleButtonState(this)">Decrease Power Output</button>
+            <button onclick="toggleButtonState(this)">Open Reactor Core</button>
+            <button onclick="toggleButtonState(this)">Close Reactor Core</button>
+        </div>
+    </div>
+
+    <div class="menu">
+        <h2 onclick="toggleMenu('safety-systems')">Safety Systems</h2>
+        <div id="safety-systems" class="button-container">
+            <button onclick="toggleButtonState(this)">Activate Cooling System</button>
+            <button onclick="toggleButtonState(this)">Deactivate Cooling System</button>
+            <button class="critical" onclick="toggleButtonState(this)">Emergency Shutdown</button>
+            <button onclick="toggleButtonState(this)">Enable Safety Protocols</button>
+            <button onclick="toggleButtonState(this)">Disable Safety Protocols</button>
+            <button onclick="toggleButtonState(this)">Activate Backup Power</button>
+            <button onclick="toggleButtonState(this)">Deactivate Backup Power</button>
+            <button class="critical" onclick="toggleButtonState(this)">Test Alarm System</button>
+        </div>
+    </div>
+
+    <div class="menu">
+        <h2 onclick="toggleMenu('diagnostics-controls')">Diagnostics & Controls</h2>
+        <div id="diagnostics-controls" class="button-container">
+            <button onclick="toggleButtonState(this)">Run Diagnostics</button>
+            <button onclick="toggleButtonState(this)">View Reactor Status</button>
+            <button onclick="toggleButtonState(this)">Override Controls</button>
+            <button onclick="toggleButtonState(this)">Lock Controls</button>
+            <button onclick="toggleButtonState(this)">Unlock Controls</button>
+            <button onclick="toggleButtonState(this)">Reset System</button>
+        </div>
+    </div>
+</body>
+</html>
