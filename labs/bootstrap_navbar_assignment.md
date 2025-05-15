@@ -174,6 +174,30 @@ Bootstrapでは、ナビバーの背景色（`bg-*`）と文字色（`navbar-*`�
 </div>
 ```
 
+
+### ヒーロー（Jumbotron風）
+
+```html
+<div class="p-5 mb-4 bg-light rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">ようこそ！</h1>
+    <p class="col-md-8 fs-4">このアプリでは学内の情報を簡単にチェックできます。</p>
+    <button class="btn btn-primary btn-lg" type="button">今すぐ始める</button>
+  </div>
+</div>
+```
+
+### フッター
+
+```html
+<footer class="bg-dark text-white text-center py-4 mt-5">
+  <div class="container">
+    <p class="mb-0">&copy; 2025 My App. All rights reserved.</p>
+  </div>
+</footer>
+```
+
+
 - **カード（Card）**
 
 ```html
