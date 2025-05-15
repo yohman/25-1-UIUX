@@ -76,13 +76,35 @@ Bootstrapを使って、自分のアプリ・ウェブサイトに合ったナ�
 
 ## ステップ 5：追加のデザイン・機能（任意）
 
-### ダークテーマに変更：
+### ダークテーマに変更（背景・テキストの組み合わせ）：
+
+Bootstrapでは、ナビバーの背景色（`bg-*`）と文字色（`navbar-*`）の組み合わせで
+デザインテーマを調整できます。
+
+**よく使う組み合わせ例：**
+- `navbar-dark bg-dark`（黒背景に白文字）
+- `navbar-dark bg-primary`（青背景に白文字）
+- `navbar-light bg-warning`（黄色背景に黒文字）
+- `navbar-light bg-light`（白背景に黒文字）
+
+
 
 ```html
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 ```
 
-### ブランド名に色をつける：
+### ブランド名に色をつける（`text-*` クラス）：
+
+`text-*` クラスを使うことで、文字にBootstrapのテーマカラーを適用できます。
+
+**よく使う色の例：**
+- `text-primary`（青）
+- `text-success`（緑）
+- `text-warning`（黄色）
+- `text-danger`（赤）
+- `text-info`（水色）
+- `text-muted`（グレー）
+
 
 ```html
 <a class="navbar-brand text-warning fw-bold" href="#">わたしのアプリ</a>
